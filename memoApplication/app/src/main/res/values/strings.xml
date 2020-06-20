@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">memoApplication</string>
+    <string name="memo">메모</string>
+</resources>
