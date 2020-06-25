@@ -1,16 +1,13 @@
-## ANDROID STUDY
+### ANDROID STUDY
 - android study
 
-## UPDATE TERM
+### UPDATE TERM
 - weekly
 
-## FINAL GOAL
+### FINAL GOAL
 - 개인앱 개발
 
-## CONTENTS
+### CONTENTS
 - 6월 3주차
   - memo application
-    - 공부내용
-    1. sharedPreference
-    1. listview
-    1. lifecycle
+    - 공부내용 - sharedPreference, listview, lifecycle
