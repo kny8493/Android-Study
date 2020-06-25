@@ -24,6 +24,10 @@ public class ListAdapter extends BaseAdapter {
 
     public ListAdapter(){}
 
+    public ListAdapter(ArrayList<SampleData> memoList) {
+        this.listItems = memoList;
+    }
+
     @Override
     public int getCount() {
         return listItems.size();
