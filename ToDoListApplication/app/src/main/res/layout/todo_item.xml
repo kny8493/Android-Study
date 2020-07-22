@@ -3,9 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:paddingVertical="10dp"
+    android:descendantFocusability="blocksDescendants"
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintStart_toStartOf="parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/shape_round_list_item"
@@ -16,17 +19,20 @@
             style="@style/Icone"
             android:layout_width="62dp"
             android:layout_height="62dp"
-            android:src="@drawable/ic_event_busy_black_24dp"
-            tools:ignore="MissingConstraints" />
+            android:background="@android:color/transparent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="3dp" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/todo_content"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/todo_switch"
+            app:layout_constraintEnd_toStartOf="@+id/todo_status"
             app:layout_constraintLeft_toRightOf="@id/todo_icon"
-            app:layout_constraintRight_toLeftOf="@id/todo_switch"
+            app:layout_constraintRight_toLeftOf="@id/todo_status"
             app:layout_constraintStart_toEndOf="@id/todo_icon"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -76,8 +82,8 @@
                 android:text="날짜: "
                 android:textColor="#434343"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/todo_priority_data"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="@id/todo_priority"
+                app:layout_constraintTop_toBottomOf="@id/todo_priority_data"
                 app:layout_constraintVertical_bias="0.75" />
 
             <TextView
@@ -91,20 +97,19 @@
                 android:text="1997.08.01"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/todo_date"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.75" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <Switch
-            android:id="@+id/todo_switch"
+        <com.kyleduo.switchbutton.SwitchButton
+            android:id="@+id/todo_status"
+            style="@style/SwitchButtonStyle"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.5" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -32,5 +32,25 @@
     <style name="ToDoDetails">
         <item name="android:textSize">9dp</item>
     </style>
+<!--editor-->
 
+    <style name="ConvertList">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:background">#F570C5F9</item>
+        <item name="android:radius">10dp</item>
+    </style>
+
+    <style name="EditorExplain">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">#434242</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="SwitchButtonStyle">
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+    </style>
 </resources>

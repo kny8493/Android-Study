@@ -28,7 +28,7 @@
         <ImageButton
             android:id="@+id/new_btn"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_add_circle_black_24dp"
             app:layout_constraintHorizontal_bias="0.9"
@@ -37,13 +37,21 @@
             app:layout_constraintTop_toTopOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-    <ListView
-        android:layout_margin="20dp"
+    <com.baoyz.widget.PullRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_below="@+id/top"
         app:layout_constraintTop_toBottomOf="@+id/top"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:id="@+id/todo_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="0dp">
+        <ListView
+            android:clickable="true"
+            android:longClickable="true"
+            android:layout_margin="20dp"
+            android:id="@+id/todo_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true" />
+    </com.baoyz.widget.PullRefreshLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

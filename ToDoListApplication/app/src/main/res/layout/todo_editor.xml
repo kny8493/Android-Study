@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/editor_topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/godo_list_button"
+            style="@style/ConvertList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_keyboard_arrow_left_black_24dp"
+            android:text="목록"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/editor_save_button"
+            style="@style/ConvertList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="저장"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/editor_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toBottomOf="@id/editor_topBar">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="할 일 등록"
+            android:textColor="#000000"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/editor_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editor_text">
+
+        <LinearLayout
+            android:id="@+id/todo_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/todo_title_explain"
+                style="@style/EditorExplain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="제목 :"
+                app:layout_constraintLeft_toLeftOf="@id/editor_content" />
+
+            <EditText
+                android:id="@+id/todo_title_content"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:paddingHorizontal="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/todo_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/todo_title">
+
+            <TextView
+                android:id="@+id/todo_category_title"
+                style="@style/EditorExplain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="분류 :"
+                app:layout_constraintLeft_toLeftOf="@id/editor_content" />
+
+            <Spinner
+                android:id="@+id/todo_category_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:ellipsize="marquee" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/todo_due"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/todo_category">
+
+            <TextView
+                android:id="@+id/todo_due_explain"
+                style="@style/EditorExplain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="일자 :"
+                app:layout_constraintLeft_toLeftOf="@id/editor_content" />
+            <TextView
+                android:id="@+id/date_textview"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="10dp"
+                android:layout_gravity="center_vertical"
+                android:layout_height="match_parent"
+                android:text="날짜를 선택하시오"
+                android:layout_marginTop="10dp" />
+            <Button
+                android:id="@+id/date_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="일자 지정" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@id/todo_priority"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/todo_due">
+
+            <TextView
+                android:id="@+id/todo_priority_explain"
+                style="@style/EditorExplain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="중요도 :" />
+
+            <Spinner
+                android:id="@+id/todo_priority_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:ellipsize="marquee" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/todo_memo"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/todo_priority">
+
+            <TextView
+                android:id="@+id/todo_memo_explain"
+                style="@style/EditorExplain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:text="메모     :" />
+
+            <EditText
+                android:id="@+id/todo_memo_data"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:background="@drawable/textbox_border"
+                android:gravity="top"
+                android:inputType="none"
+                android:scrollbars="horizontal" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
