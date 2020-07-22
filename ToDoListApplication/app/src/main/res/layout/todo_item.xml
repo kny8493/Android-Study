@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:paddingVertical="10dp"
+    android:descendantFocusability="blocksDescendants"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_round_list_item"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/todo_icon"
+            style="@style/Icone"
+            android:layout_width="62dp"
+            android:layout_height="62dp"
+            android:background="@android:color/transparent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="3dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/todo_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/todo_status"
+            app:layout_constraintLeft_toRightOf="@id/todo_icon"
+            app:layout_constraintRight_toLeftOf="@id/todo_status"
+            app:layout_constraintStart_toEndOf="@id/todo_icon"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/todo_title"
+                style="@style/ToDoTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="영어단어 외우기"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.3" />
+
+            <TextView
+                android:id="@+id/todo_priority"
+                style="@style/ToDoDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="우선순위: "
+                android:textColor="#434343"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/todo_title"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.75" />
+
+            <TextView
+                android:id="@+id/todo_priority_data"
+                style="@style/ToDoDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2dp"
+                android:paddingRight="7dp"
+                android:text="하하하"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/todo_priority"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.75" />
+
+            <TextView
+                android:id="@+id/todo_date"
+                style="@style/ToDoDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="날짜: "
+                android:textColor="#434343"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/todo_priority"
+                app:layout_constraintTop_toBottomOf="@id/todo_priority_data"
+                app:layout_constraintVertical_bias="0.75" />
+
+            <TextView
+                android:id="@+id/todo_date_data"
+                style="@style/ToDoDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="5dp"
+                android:paddingLeft="2dp"
+                android:paddingRight="7dp"
+                android:text="1997.08.01"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/todo_date"
+                app:layout_constraintVertical_bias="0.75" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.kyleduo.switchbutton.SwitchButton
+            android:id="@+id/todo_status"
+            style="@style/SwitchButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
