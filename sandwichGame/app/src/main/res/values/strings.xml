@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">sandwichGame</string>
+    <string name="main_game_name">SUBWAY GAME</string>
+    <string name="GAME_LANK">게임 랭킹</string>
+</resources>
