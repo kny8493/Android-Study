@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "333073990790",
+    "firebase_url": "https://sandwichgameimage.firebaseio.com",
+    "project_id": "sandwichgameimage",
+    "storage_bucket": "sandwichgameimage.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:333073990790:android:1bbc2d0649b33cb3ee7d07",
+        "android_client_info": {
+          "package_name": "com.example.sandwichgame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "333073990790-ndohss3hknmjr9hraatbmjktcldk2p8v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sandwichgame",
+            "certificate_hash": "2fcbed01bf220f759bc19c4965b56715a813459c"
+          }
+        },
+        {
+          "client_id": "333073990790-v9007cf4nqoc89s8nh5f7n5ts0lj5otr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1KVnbQ9tzJCrBmeRDElvS7L5aogxgeFg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "333073990790-v9007cf4nqoc89s8nh5f7n5ts0lj5otr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,32 +1,27 @@
 package com.example.sandwichgame;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.airbnb.lottie.L;
-import com.airbnb.lottie.LottieAnimationView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -39,6 +34,8 @@ public class LankActivity extends AppCompatActivity {
     private SharedPreferences.Editor editor = null;
 
     ImageButton btnMain;
+    ImageButton btnReplay;
+
     RecyclerView recyclerView;
     LinearLayoutManager linearLayoutManager;
     RecyclerViewAdapter recyclerViewAdapter;
@@ -50,15 +47,29 @@ public class LankActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lank);
 
+        Intent intent = getIntent();
+
         sharedPref = getSharedPreferences("data", MODE_PRIVATE);
         editor = sharedPref.edit();
 
         btnMain = findViewById(R.id.lank_main);
+        btnReplay = findViewById(R.id.lank_game_replay);
+
         btnMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
+                finish();
+            }
+        });
+
+        btnReplay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -70,7 +81,6 @@ public class LankActivity extends AppCompatActivity {
                 new DividerItemDecoration(this, linearLayoutManager.getOrientation()));
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        Intent intent = getIntent();
         getScoreData(intent);
     }
 
@@ -108,17 +118,18 @@ public class LankActivity extends AppCompatActivity {
 
     public void getScoreData(Intent intent) {
         Gson gson = new Gson();
-        if (Optional.ofNullable(intent.getStringExtra("name")).isPresent()) {
+        if (Optional.ofNullable(intent.getExtras()).isPresent()) {
 
-            String name = intent.getStringExtra("name");
-            String score = intent.getStringExtra("score");
-            RecycleViewItem item = new RecycleViewItem(name, score);
+            String name = intent.getExtras().get("name").toString();
+            String score = intent.getExtras().get("score").toString();
+            String imageUrl = intent.getExtras().get("image").toString();
+            RecycleViewItem item = new RecycleViewItem(name, score, imageUrl);
 
             ArrayList<RecycleViewItem> arrayList = new ArrayList<RecycleViewItem>();
-            String json = sharedPref.getString("data", null);
+            String json = sharedPref.getString("data", "");
 
             // new  생성후 데이터 넣기
-            if (json == null) {
+            if (json.length() == 0) {
                 editor.putString("data", gson.toJson(arrayList)).commit();
             } else {
                 Type listType = new TypeToken<ArrayList<RecycleViewItem>>() {
@@ -130,22 +141,21 @@ public class LankActivity extends AppCompatActivity {
                 String strJson = gson.toJson(datas, listType);
                 editor.putString("data", strJson).commit();
             }
+        } else {
+            ArrayList<RecycleViewItem> arrayList = new ArrayList<RecycleViewItem>();
+            String json = sharedPref.getString("data", "");
 
-        }
-    }
+            // new  생성후 데이터 넣기
+            if (json.length() == 0) {
+                editor.putString("data", gson.toJson(arrayList)).commit();
+            } else {
+                Type listType = new TypeToken<ArrayList<RecycleViewItem>>() {
+                }.getType();
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode != RESULT_OK) {
-            return;
-        }
-        Log.d("RequestCOde", requestCode + "::");
-        switch (requestCode) {
-            case 1001: {
-                //수신성공 출력
-                String result = data.getStringExtra("name");
-                Log.d("name", result);
+                ArrayList<RecycleViewItem> datas = gson.fromJson(json, listType);
+
+                String strJson = gson.toJson(datas, listType);
+                editor.putString("data", strJson).commit();
             }
         }
     }

@@ -1,11 +1,12 @@
 package com.example.sandwichgame;
 
-import android.widget.TextView;
+import android.net.Uri;
 
 public class RecycleViewItem implements Comparable<RecycleViewItem>{
     private String number;
     private String name;
     private String score;
+    private String imageUrl;
 
     public String getNumber() {
         return number;
@@ -17,6 +18,14 @@ public class RecycleViewItem implements Comparable<RecycleViewItem>{
 
     public String getName() {
         return name;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public void setName(String name) {
@@ -31,20 +40,20 @@ public class RecycleViewItem implements Comparable<RecycleViewItem>{
         this.score = score;
     }
 
-    public RecycleViewItem(String number, String name, String score) {
+    public RecycleViewItem(String number, String name, String score, String imageUrl) {
 
         this.number = number;
         this.name = name;
         this.score = score;
+        this.imageUrl = imageUrl;
     }
-    public RecycleViewItem(String name, String score) {
+    public RecycleViewItem(String name, String score, String imageUrl) {
         this.name = name;
         this.score = score;
+        this.imageUrl = imageUrl;
     }
-
-
     @Override
     public int compareTo(RecycleViewItem item) {
-        return item.score.compareTo(this.score);
+        return Integer.parseInt(item.getScore()) - Integer.parseInt(getScore());
     }
 }
