@@ -2,29 +2,25 @@ package com.example.sandwichgame;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 @RequiresApi(api = Build.VERSION_CODES.N)
@@ -130,6 +126,8 @@ public class LankActivity extends AppCompatActivity {
 
             // new  생성후 데이터 넣기
             if (json.length() == 0) {
+                RecycleViewItem recycleViewItem = new RecycleViewItem(name, score, imageUrl);
+                arrayList.add(recycleViewItem);
                 editor.putString("data", gson.toJson(arrayList)).commit();
             } else {
                 Type listType = new TypeToken<ArrayList<RecycleViewItem>>() {

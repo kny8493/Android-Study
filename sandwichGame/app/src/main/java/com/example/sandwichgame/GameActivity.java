@@ -94,9 +94,9 @@ public class GameActivity extends AppCompatActivity {
     Handler handler3 = new Handler();
     Timer timer3;
 
-    int ingredientCnt1=3;
-    int ingredientCnt2=4;
-    int ingredientCnt3=5;
+    int ingredientCnt1 = 3;
+    int ingredientCnt2 = 4;
+    int ingredientCnt3 = 6;
 
     int randItemCnt1;
     int randItemCnt2;
@@ -117,7 +117,8 @@ public class GameActivity extends AppCompatActivity {
     Boolean hide = false;
     Boolean start = false;
 
-    String conversionTime = "0300";
+    String conversionTime = "0100";
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_main);
@@ -125,7 +126,7 @@ public class GameActivity extends AppCompatActivity {
         sharedPref = getSharedPreferences("data", MODE_PRIVATE);
         editor = sharedPref.edit();
         isFirst = sharedPref.getBoolean("isFirst", true);
-        if(isFirst) {
+        if (isFirst) {
             editor.putBoolean("isFirst", false).apply();
 
             // 게임을 최초로 시작하는 경우
@@ -144,6 +145,9 @@ public class GameActivity extends AppCompatActivity {
                         @Override
                         public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
                             dialogInterface.dismiss();
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(intent);
+                            finish();
                         }
                     })
                     .build();
@@ -154,7 +158,7 @@ public class GameActivity extends AppCompatActivity {
             start = true;
         }
 
-        if (start){
+        if (start) {
             countDown(conversionTime);
         }
         gameTimer = findViewById(R.id.game_timer);
@@ -217,9 +221,9 @@ public class GameActivity extends AppCompatActivity {
     @SuppressLint({"SetTextI18n", "ClickableViewAccessibility"})
     protected void onStart() {
         super.onStart();
-        randItemCnt1 = random.nextInt(3)+5;
-        randItemCnt2 = random.nextInt(3)+5;
-        randItemCnt3 = random.nextInt(3)+5;
+        randItemCnt1 = random.nextInt(3) + 5;
+        randItemCnt2 = random.nextInt(3) + 5;
+        randItemCnt3 = random.nextInt(3) + 5;
 
         orderItem1.setText(Integer.toString(randItemCnt1));
         orderItem2.setText(Integer.toString(randItemCnt2));
@@ -230,7 +234,6 @@ public class GameActivity extends AppCompatActivity {
         tableTimer3.setText(String.valueOf(tableTimerValue3) + "초");
 
         score = Integer.parseInt(totalScore.getText().toString());
-
 
 
         bread1.setOnTouchListener(new View.OnTouchListener() {
@@ -339,7 +342,6 @@ public class GameActivity extends AppCompatActivity {
         });
 
 
-
         tableCook1.setOnDragListener(new View.OnDragListener() {
             @Override
             public boolean onDrag(View v, DragEvent event) {
@@ -362,12 +364,12 @@ public class GameActivity extends AppCompatActivity {
                             return false;
                         }
 
-                    //드래그가 드롭되면
+                        //드래그가 드롭되면
                     case DragEvent.ACTION_DROP:
                         switch (event.getClipData().getItemAt(0).getText().toString()) {
                             case "bread1":
                                 if (!dragFlag1) startTimer(0);
-                                if(menu1.contains("bread1")) {
+                                if (menu1.contains("bread1")) {
                                     alreadyPresentItem();
                                     break;
                                 }
@@ -378,7 +380,7 @@ public class GameActivity extends AppCompatActivity {
                                 break;
                             case "veg1":
                                 if (!dragFlag1) startTimer(0);
-                                if(menu1.contains("veg1")) {
+                                if (menu1.contains("veg1")) {
                                     alreadyPresentItem();
                                     break;
                                 }
@@ -389,7 +391,7 @@ public class GameActivity extends AppCompatActivity {
                                 break;
                             case "sauce1":
                                 if (!dragFlag1) startTimer(0);
-                                if(menu1.contains("sauce1")) {
+                                if (menu1.contains("sauce1")) {
                                     alreadyPresentItem();
                                     break;
                                 }
@@ -406,16 +408,16 @@ public class GameActivity extends AppCompatActivity {
                     //드래그 성공 취소 여부에 상관없이 모든뷰에게
                     case DragEvent.ACTION_DRAG_ENDED:
 
-                        if(event.getResult()){
-                            if(ingredientCnt1 <=0) {
-                                if(randItemCnt1 <=0) {
+                        if (event.getResult()) {
+                            if (ingredientCnt1 <= 0) {
+                                if (randItemCnt1 <= 0) {
                                     Toast.makeText(getApplicationContext(), "이미 다 만들었습니다.", Toast.LENGTH_SHORT).show();
                                 } else {
                                     randItemCnt1--;
                                 }
                                 checkGameComplete();
-                                ingredientCnt1=3;
-                                totalScore.setText(String.valueOf(score+=5));
+                                ingredientCnt1 = 3;
+                                totalScore.setText(String.valueOf(score += 5));
                                 orderItem1.setText(String.valueOf(randItemCnt1));
                                 table1VegImage.setImageResource(R.drawable.ic_smart_cart);
                                 table1SauceImage.setImageResource(R.drawable.ic_smart_cart);
@@ -457,7 +459,7 @@ public class GameActivity extends AppCompatActivity {
                         switch (event.getClipData().getItemAt(0).getText().toString()) {
                             case "bread2":
                                 if (!dragFlag2) startTimer(1);
-                                if(menu2.contains("bread2")) {
+                                if (menu2.contains("bread2")) {
                                     alreadyPresentItem();
                                     break;
                                 }
@@ -468,7 +470,7 @@ public class GameActivity extends AppCompatActivity {
                                 break;
                             case "veg2":
                                 if (!dragFlag2) startTimer(1);
-                                if(menu2.contains("veg2")) {
+                                if (menu2.contains("veg2")) {
                                     alreadyPresentItem();
                                     break;
                                 }
@@ -480,7 +482,7 @@ public class GameActivity extends AppCompatActivity {
                                 break;
                             case "sauce1":
                                 if (!dragFlag2) startTimer(1);
-                                if(menu2.contains("sauce1")) {
+                                if (menu2.contains("sauce1")) {
                                     alreadyPresentItem();
                                     break;
                                 }
@@ -491,7 +493,7 @@ public class GameActivity extends AppCompatActivity {
                                 break;
                             case "sauce2":
                                 if (!dragFlag2) startTimer(1);
-                                if(menu2.contains("sauce2")) {
+                                if (menu2.contains("sauce2")) {
                                     alreadyPresentItem();
                                     break;
                                 }
@@ -506,16 +508,16 @@ public class GameActivity extends AppCompatActivity {
                         return true;
                     //드래그 성공 취소 여부에 상관없이 모든뷰에게
                     case DragEvent.ACTION_DRAG_ENDED:
-                        if(event.getResult()){//드래그 성공시
-                            if(ingredientCnt2 <=0) {
-                                if(randItemCnt2 <=0) {
+                        if (event.getResult()) {//드래그 성공시
+                            if (ingredientCnt2 <= 0) {
+                                if (randItemCnt2 <= 0) {
                                     Toast.makeText(getApplicationContext(), "이미 다 만들었습니다.", Toast.LENGTH_SHORT).show();
                                 } else {
                                     randItemCnt2--;
                                 }
                                 checkGameComplete();
-                                ingredientCnt2=4;
-                                totalScore.setText(String.valueOf(score+=10));
+                                ingredientCnt2 = 4;
+                                totalScore.setText(String.valueOf(score += 10));
                                 table2VegImage.setImageResource(R.drawable.ic_smart_cart);
                                 table2Sauce1Image.setImageResource(R.drawable.ic_smart_cart);
                                 table2Sauce2Image.setImageResource(R.drawable.ic_smart_cart);
@@ -553,12 +555,12 @@ public class GameActivity extends AppCompatActivity {
                             return false;
                         }
 
-                     //드래그가 드롭되면
+                        //드래그가 드롭되면
                     case DragEvent.ACTION_DROP:
                         switch (event.getClipData().getItemAt(0).getText().toString()) {
                             case "bread2":
                                 if (!dragFlag3) startTimer(2);
-                                if(menu3.contains("bread2")) {
+                                if (menu3.contains("bread2")) {
                                     alreadyPresentItem();
                                     break;
                                 }
@@ -568,7 +570,7 @@ public class GameActivity extends AppCompatActivity {
                                 break;
                             case "veg1":
                                 if (!dragFlag3) startTimer(2);
-                                if(menu3.contains("veg1")) {
+                                if (menu3.contains("veg1")) {
                                     alreadyPresentItem();
                                     break;
                                 }
@@ -578,7 +580,7 @@ public class GameActivity extends AppCompatActivity {
                                 break;
                             case "veg2":
                                 if (!dragFlag3) startTimer(2);
-                                if(menu3.contains("veg2")) {
+                                if (menu3.contains("veg2")) {
                                     alreadyPresentItem();
                                     break;
                                 }
@@ -588,7 +590,7 @@ public class GameActivity extends AppCompatActivity {
                                 break;
                             case "veg3":
                                 if (!dragFlag3) startTimer(2);
-                                if(menu3.contains("veg3")) {
+                                if (menu3.contains("veg3")) {
                                     alreadyPresentItem();
                                     break;
                                 }
@@ -598,7 +600,7 @@ public class GameActivity extends AppCompatActivity {
                                 break;
                             case "sauce3":
                                 if (!dragFlag3) startTimer(2);
-                                if(menu3.contains("sauce3")) {
+                                if (menu3.contains("sauce3")) {
                                     alreadyPresentItem();
                                     break;
                                 }
@@ -608,7 +610,7 @@ public class GameActivity extends AppCompatActivity {
                                 break;
                             case "sauce4":
                                 if (!dragFlag3) startTimer(2);
-                                if(menu3.contains("sauce4")) {
+                                if (menu3.contains("sauce4")) {
                                     alreadyPresentItem();
                                     break;
                                 }
@@ -624,16 +626,16 @@ public class GameActivity extends AppCompatActivity {
                     //드래그 성공 취소 여부에 상관없이 모든뷰에게
                     case DragEvent.ACTION_DRAG_ENDED:
 
-                        if(event.getResult()){//드래그 성공시
-                            if(ingredientCnt3 <=0) {
-                                if(randItemCnt3 <=0) {
+                        if (event.getResult()) {//드래그 성공시
+                            if (ingredientCnt3 <= 0) {
+                                if (randItemCnt3 <= 0) {
                                     Toast.makeText(getApplicationContext(), "이미 다 만들었습니다.", Toast.LENGTH_SHORT).show();
                                 } else {
                                     randItemCnt3--;
                                 }
                                 checkGameComplete();
-                                ingredientCnt3=5;
-                                totalScore.setText(String.valueOf(score+=20));
+                                ingredientCnt3 = 6;
+                                totalScore.setText(String.valueOf(score += 20));
                                 table3BreadImage.setImageResource(R.drawable.ic_smart_cart);
                                 table3Veg1Image.setImageResource(R.drawable.ic_smart_cart);
                                 table3Veg2Image.setImageResource(R.drawable.ic_smart_cart);
@@ -667,32 +669,32 @@ public class GameActivity extends AppCompatActivity {
         super.onResume();
         hide = sharedPref.getBoolean("hide", false);
 
-        if(hide) {
+        if (hide) {
             MaterialDialog mDialog = new MaterialDialog.Builder(this)
-                .setTitle("CONTINUE?")
-                .setMessage("게임을 이어서 하시겠습니까?")
-                .setPositiveButton("예", new AbstractDialog.OnClickListener() {
-                    @Override
-                    public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
-                        Toast.makeText(getApplicationContext(), "이어서 게임하기",Toast.LENGTH_SHORT).show();
-                        editor.putBoolean("hide", false).apply();
-                    }
-                })
-                .setNegativeButton("아니오", new AbstractDialog.OnClickListener() {
-                    @Override
-                    public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
-                        editor.putBoolean("hide", false).apply();
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                }).build();
+                    .setTitle("CONTINUE?")
+                    .setMessage("게임을 이어서 하시겠습니까?")
+                    .setPositiveButton("예", new AbstractDialog.OnClickListener() {
+                        @Override
+                        public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+                            Toast.makeText(getApplicationContext(), "이어서 게임하기", Toast.LENGTH_SHORT).show();
+                            editor.putBoolean("hide", false).apply();
+                        }
+                    })
+                    .setNegativeButton("아니오", new AbstractDialog.OnClickListener() {
+                        @Override
+                        public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+                            editor.putBoolean("hide", false).apply();
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    }).build();
             mDialog.show();
         }
     }
 
     private void checkGameComplete() {
-        if(randItemCnt1 <= 0 && randItemCnt2 <= 0 && randItemCnt3 <= 0) {
+        if (randItemCnt1 <= 0 && randItemCnt2 <= 0 && randItemCnt3 <= 0) {
             MaterialDialog mDialog = new MaterialDialog.Builder(this)
                     .setAnimation("lottie_congratulation.json")
                     .setTitle("CONGRATULATION")
@@ -844,7 +846,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void unacceptableItem() {
-        Toast.makeText(this,"잘못된 재료",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "잘못된 재료", Toast.LENGTH_SHORT).show();
     }
 
     public void alreadyPresentItem() {

@@ -399,7 +399,7 @@
         android:background="@drawable/background_timer"
         android:drawableStart="@drawable/ic_stopwatch"
         android:gravity="center"
-        android:text="03:00"
+        android:text="01:00"
         android:textColor="#ffffff"
         android:textSize="8sp"
         android:textStyle="bold"
@@ -435,7 +435,6 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.button.MaterialButton
-                android:paddingVertical="1dp"
                 android:id="@+id/material_bread_1"
                 style="@style/game_material_btn"
                 android:layout_width="0dp"
@@ -444,6 +443,7 @@
                 android:backgroundTint="#ffffff"
                 android:drawableTop="@drawable/ic_bread_1"
                 android:longClickable="true"
+                android:paddingVertical="1dp"
                 android:text="식빵"
                 android:textColor="#000000"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -454,12 +454,12 @@
                 android:id="@+id/material_bread_2"
                 style="@style/game_material_btn"
                 android:layout_width="0dp"
-                android:paddingVertical="1dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:backgroundTint="#ffffff"
                 android:drawableTop="@drawable/ic_bread_2"
                 android:longClickable="true"
+                android:paddingVertical="1dp"
                 android:text="밀"
                 android:textColor="#000000"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -481,7 +481,6 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/material_veg_1"
-                android:paddingVertical="1dp"
                 style="@style/game_material_btn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -489,6 +488,7 @@
                 android:backgroundTint="#ffffff"
                 android:drawableLeft="@drawable/ic_cabbage"
                 android:longClickable="true"
+                android:paddingVertical="1dp"
                 android:text="양배추"
                 android:textColor="#000000"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -512,9 +512,8 @@
                 app:layout_constraintTop_toBottomOf="@id/material_veg_1" />
 
             <com.google.android.material.button.MaterialButton
-                android:paddingVertical="1dp"
-
                 android:id="@+id/material_veg_3"
+
                 style="@style/game_material_btn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -522,6 +521,7 @@
                 android:backgroundTint="#ffffff"
                 android:drawableLeft="@drawable/ic_onion"
                 android:longClickable="true"
+                android:paddingVertical="1dp"
                 android:text="양파"
                 android:textColor="#000000"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -544,64 +544,80 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
-                android:columnCount="2"
+                android:columnCount="1"
                 android:gravity="center"
                 android:rowCount="2"
-                android:stretchMode="spacingWidthUniform"
+                android:stretchMode="columnWidth"
                 app:layout_constraintTop_toBottomOf="@id/material_sauce">
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/material_sauce_1"
-                    style="@style/game_material_btn_sauce_text"
-                    android:layout_width="40dp"
-                    android:layout_row="0"
-                    android:layout_column="0"
-                    android:layout_gravity="center"
-                    android:backgroundTint="#ffffff"
-                    android:drawableTop="@drawable/ic_sauce_1"
-                    android:gravity="center_horizontal"
-                    android:longClickable="true"
-                    android:text="마요네즈"
-                    android:textColor="#000000"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0">
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/material_sauce_2"
-                    style="@style/game_material_btn_sauce_text"
-                    android:layout_width="40dp"
-                    android:layout_row="0"
-                    android:layout_column="1"
-                    android:layout_gravity="center"
-                    android:backgroundTint="#ffffff"
-                    android:drawableTop="@drawable/ic_sauce_2"
-                    android:longClickable="true"
-                    android:text="캡사이신"
-                    android:textColor="#000000" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/material_sauce_1"
+                        style="@style/game_material_btn_sauce_text"
+                        android:layout_width="0dp"
+                        android:layout_height="62sp"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#ffffff"
+                        android:drawableTop="@drawable/ic_sauce_1"
+                        android:longClickable="true"
+                        android:text="마요네즈"
+                        android:textColor="#000000" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/material_sauce_3"
-                    style="@style/game_material_btn_sauce_text"
-                    android:layout_width="40dp"
-                    android:layout_row="1"
-                    android:layout_column="0"
-                    android:layout_gravity="center"
-                    android:backgroundTint="#ffffff"
-                    android:drawableTop="@drawable/ic_sauce_3"
-                    android:longClickable="true"
-                    android:text="머스타드"
-                    android:textColor="#000000" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/material_sauce_2"
+                        style="@style/game_material_btn_sauce_text"
+                        android:layout_width="0dp"
+                        android:layout_height="62sp"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#ffffff"
+                        android:drawableTop="@drawable/ic_sauce_2"
+                        android:longClickable="true"
+                        android:text="캡사이신"
+                        android:textColor="#000000" />
+                </LinearLayout>
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/material_sauce_4"
-                    style="@style/game_material_btn_sauce_text"
-                    android:layout_width="40dp"
-                    android:layout_row="1"
-                    android:layout_column="1"
-                    android:layout_gravity="center"
-                    android:backgroundTint="#ffffff"
-                    android:drawableTop="@drawable/ic_sauce_4"
-                    android:longClickable="true"
-                    android:text="케첩"
-                    android:textColor="#000000" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_row="1">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/material_sauce_3"
+                        style="@style/game_material_btn_sauce_text"
+                        android:layout_width="0dp"
+                        android:layout_height="62sp"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#ffffff"
+                        android:drawableTop="@drawable/ic_sauce_3"
+                        android:longClickable="true"
+                        android:text="머스타드"
+                        android:textColor="#000000" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/material_sauce_4"
+                        style="@style/game_material_btn_sauce_text"
+                        android:layout_width="0dp"
+                        android:layout_height="62sp"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#ffffff"
+                        android:drawableTop="@drawable/ic_sauce_4"
+                        android:longClickable="true"
+                        android:text="케첩"
+                        android:textColor="#000000" />
+                </LinearLayout>
+
             </GridLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -613,7 +629,7 @@
         android:id="@+id/order"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/border_order_list"
+        android:background="@drawable/border_plain"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHeight_percent="0.28"
         app:layout_constraintLeft_toLeftOf="parent"

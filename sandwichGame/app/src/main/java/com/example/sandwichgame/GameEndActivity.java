@@ -30,6 +30,9 @@ import java.util.Date;
 
 public class GameEndActivity extends AppCompatActivity {
 
+    static final int saveUserInfo = 1000;
+    static final int gotoLank = 2000;
+
     TextView gameScore;
     ImageButton userImage;
     EditText userName;
@@ -42,6 +45,7 @@ public class GameEndActivity extends AppCompatActivity {
     String filename;
     FirebaseStorage storage;
     StorageReference storageRef;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,7 +89,6 @@ public class GameEndActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), GameActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -94,7 +97,6 @@ public class GameEndActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -103,7 +105,6 @@ public class GameEndActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), LankActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -111,18 +112,19 @@ public class GameEndActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 uploadFile();
-                if(userName == null) {
+                if (userName == null) {
                     Toast.makeText(getApplicationContext(), "닉네임을 입력하세요.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
+
     // 카메라에서 파일 가져오기
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         //request코드가 0이고 OK를 선택했고 data에 뭔가가 들어 있다면
-        if(requestCode == 0 && resultCode == RESULT_OK){
+        if (requestCode == 0 && resultCode == RESULT_OK) {
             filePath = data.getData();
             try {
                 //Uri 파일을 Bitmap으로 만들어서 ImageView에 집어 넣는다.
@@ -155,9 +157,7 @@ public class GameEndActivity extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            if(progressDialog != null) {
-                                progressDialog.dismiss(); //업로드 진행 Dialog 상자 닫기
-                            }
+                            progressDialog.dismiss();
                             Toast.makeText(getApplicationContext(), "업로드 완료!", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), LankActivity.class);
                             intent.putExtra("score", gameScore.getText());
@@ -171,9 +171,7 @@ public class GameEndActivity extends AppCompatActivity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            if(progressDialog != null) {
-                                progressDialog.dismiss(); //업로드 진행 Dialog 상자 닫기
-                            }
+                            progressDialog.dismiss();
                             Toast.makeText(getApplicationContext(), "업로드 실패!", Toast.LENGTH_SHORT).show();
                         }
                     })
@@ -181,9 +179,9 @@ public class GameEndActivity extends AppCompatActivity {
                     .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                            if(progressDialog != null) {
+                            if (progressDialog != null) {
                                 @SuppressWarnings("VisibleForTests")
-                                 double progress = (100 * taskSnapshot.getBytesTransferred()) /  taskSnapshot.getTotalByteCount();
+                                double progress = (100 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
                                 //dialog에 진행률을 퍼센트로 출력해 준다
                                 progressDialog.setMessage("Uploaded " + ((int) progress) + "% ...");
                             }
