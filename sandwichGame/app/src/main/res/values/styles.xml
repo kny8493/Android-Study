@@ -38,7 +38,7 @@
 
     <!--game page-->
     <style name="game_material_type">
-        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textColor">#F3F7FF</item>
         <item name="android:textSize">13dp</item>
         <item name="android:textStyle">bold</item>
     </style>
@@ -46,7 +46,7 @@
         <item name="android:textSize">10dp</item>
     </style>
     <style name="game_material_btn_sauce_text">
-        <item name="android:textSize">4dp</item>
+        <item name="android:textSize">5dp</item>
     </style>
     <style name="game_table_material_type">
         <item name="android:textSize">12dp</item>
@@ -58,7 +58,7 @@
     <style name="game_order_list_header">
         <item name="android:textSize">17dp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">#3F51B5</item>
+        <item name="android:textColor">#6495ED</item>
     </style>
     <style name="game_order_list_number">
         <item name="android:textSize">15dp</item>
@@ -82,7 +82,7 @@
         <item name="android:gravity">center</item>
         <item name="android:textSize">17dp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">#EDEBEB</item>
+        <item name="android:textColor">#03A9F4</item>
     </style>
 
     <!-- game end -->

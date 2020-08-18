@@ -11,15 +11,18 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -130,6 +133,8 @@ public class LankActivity extends AppCompatActivity {
 
             // new  생성후 데이터 넣기
             if (json.length() == 0) {
+                RecycleViewItem recycleViewItem = new RecycleViewItem(name, score, imageUrl);
+                arrayList.add(recycleViewItem);
                 editor.putString("data", gson.toJson(arrayList)).commit();
             } else {
                 Type listType = new TypeToken<ArrayList<RecycleViewItem>>() {

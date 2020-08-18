@@ -2,7 +2,7 @@ package com.example.sandwichgame;
 
 import android.net.Uri;
 
-public class RecycleViewItem implements Comparable<RecycleViewItem>{
+public class RecycleViewItem implements Comparable<RecycleViewItem> {
     private String number;
     private String name;
     private String score;
@@ -47,11 +47,13 @@ public class RecycleViewItem implements Comparable<RecycleViewItem>{
         this.score = score;
         this.imageUrl = imageUrl;
     }
+
     public RecycleViewItem(String name, String score, String imageUrl) {
         this.name = name;
         this.score = score;
         this.imageUrl = imageUrl;
     }
+
     @Override
     public int compareTo(RecycleViewItem item) {
         return Integer.parseInt(item.getScore()) - Integer.parseInt(getScore());
