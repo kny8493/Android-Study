@@ -1,23 +1,19 @@
-# ANDROID STUDY
-- android study
-
-# UPDATE TERM
-- weekly
 
 # FINAL GOAL
 - 개인앱 개발
 
-# CONTENTS
-- memo app : 리스트뷰를 이용한 메모장 앱
+## memo app : 리스트뷰를 이용한 메모장 앱
   - SharedPreference
   - listview, lifecycle
-- todo list app : CRUD 구현 목표로 개발한 일정 등록 앱
+  
+## todo list app : CRUD 구현 목표로 개발한 일정 등록 앱
   - GSON
   - ListView
   - sharedPreferences
   - awesome ui
   - CRUD, UI요소
-- sandwichGame : 스레드를 이용한 게임
+  
+## sandwichGame : 스레드를 이용한 게임
   - Firebase stoarge
   - thread
   - sharedPreferences
@@ -34,12 +30,13 @@
     - 게임 종료 후 랭킹 등록
     - 점수 랭킹 리스트
     - lottie 라이브러리 사용 
-- memo app v2 : 애니메이션을 이용한 일기장 앱
-    - Firebase Storage
-    - Animation Library
-    - GSON
-    - etc..
-    - 기능
+    
+## memo app v2 : 애니메이션을 이용한 일기장 앱
+  - Firebase Storage
+  - Animation Library
+  - GSON
+  - etc..
+  - 기능
       - 애니메이션
       - 애니메이션 라이브러리 사용
       - 사진이 없는 경우 안보임
