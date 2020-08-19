@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:visibility="gone"
+    android:orientation="vertical">
+
+    <!-- content header line -->
+    <RelativeLayout
+        android:id="@+id/cell_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#8B4513"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="4dp">
+
+        <TextView
+            android:textColor="#FDF5E6"
+            android:id="@+id/cell_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:text="제목입니다"/>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/cell_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxHeight="200dp"
+        android:background="@android:color/transparent" />
+
+    <LinearLayout
+        android:id="@+id/cell_date"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/CellDataExplain"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="일자 : " />
+
+        <TextView
+            android:paddingHorizontal="10dp"
+            style="@style/CellData"
+            android:id="@+id/cell_date_data"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.9" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:padding="10dp"
+        android:id="@+id/cell_content"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+        <TextView
+            style="@style/CellDataExplain"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:gravity="left"
+            android:text="내용 : " />
+
+        <TextView
+            style="@style/CellData"
+            android:id="@+id/cell_content_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="내용이 없습니다"
+            android:padding="10dp"
+            android:scrollbars="vertical" />
+    </LinearLayout>
+</LinearLayout>

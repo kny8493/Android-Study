@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="#FDF5E6"
+    android:baselineAligned="false"
+    android:orientation="horizontal">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+        <!-- LEFT TITLE PART -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/main_date"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="#F0B469"
+            android:padding="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintWidth_percent="0.2">
+
+            <TextView
+                android:fontFamily="@font/ddukbokki"
+                android:id="@+id/main_date_day"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:text="15"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                app:layout_constraintHeight_percent="0.6"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:fontFamily="@font/ddukbokki"
+                android:id="@+id/main_date_month"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:text="7"
+                android:textColor="@android:color/white"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHeight_percent="0.4"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/main_date_day"
+                app:layout_constraintWidth_percent="0.3" />
+
+            <TextView
+                android:fontFamily="@font/ddukbokki"
+                android:id="@+id/main_date_year"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@android:color/transparent"
+                android:text="2020"
+                android:textColor="@android:color/white"
+                android:textSize="10sp"
+                android:gravity="center"
+                app:layout_constraintWidth_percent="0.7"
+                app:layout_constraintHeight_percent="0.4"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/main_date_day" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="title"
+            android:paddingHorizontal="10dp"
+            android:paddingTop="5dp"
+            android:paddingStart="5dp"
+            android:id="@+id/main_title_explain"
+            android:textColor="#7E7E7E"
+            android:textSize="8sp"
+            app:layout_constraintLeft_toRightOf="@id/main_date"/>
+
+        <TextView
+            android:fontFamily="@font/ddukbokki"
+            android:paddingHorizontal="10dp"
+            android:id="@+id/main_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:gravity="center_vertical"
+            android:text="제목"
+            app:layout_constraintTop_toBottomOf="@id/main_title_explain"
+            app:layout_constraintLeft_toRightOf="@id/main_date"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
